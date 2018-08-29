@@ -1,0 +1,41 @@
+body{
+	margin: 0 auto;
+	padding: 25px;
+}
+
+.container {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	height: 25px;
+	margin-bottom: 5px;
+}
+
+
+table {
+	width: 750px;
+	border: 1px solid black;
+}
+
+tr, th {
+	border: 1px solid black;
+}
+
+
+
+
+.hide td:nth-child(n+2) {
+	display: none;
+}
+
+.show td:nth-child(n+2) {
+	display: table-cell;
+}
