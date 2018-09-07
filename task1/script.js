@@ -104,12 +104,10 @@ class Frigate extends SpaceShip {
 }
 
 
-
-
-let Orion = new SpaceShip('Orion', 500, 5.3);
-let VSSUnity = new Cutter('VSS Unity', 400, 5.4, 10000, 'R4GB', 'USA');
-let Virgin = new Corvette('Virgin', 500, 5.2, 200, 150, 'ММГ/N2O4');
-let Dragon = new Frigate('Dragon', 500, 5.4, 'SpaceX', 'NASA', 15)
+const Orion = new SpaceShip('Orion', 500, 5.3);
+const VSSUnity = new Cutter('VSS Unity', 400, 5.4, 10000, 'R4GB', 'USA');
+const Virgin = new Corvette('Virgin', 500, 5.2, 200, 150, 'ММГ/N2O4');
+const Dragon = new Frigate('Dragon', 500, 5.4, 'SpaceX', 'NASA', 15)
 
 Orion.Name().Speed().Size();
 console.log("--------");
