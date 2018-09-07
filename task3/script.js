@@ -1,7 +1,8 @@
-let form = document.forms.namedItem("user");
-let users = [];
-let tBody = document.createElement('tbody');
+const form = document.forms.namedItem("user");
+const users = [];
+const tBody = document.createElement('tbody');
 let count = 0;
+
 
 
 form.addEventListener('submit', function(e) {
@@ -9,23 +10,17 @@ form.addEventListener('submit', function(e) {
 
 
 	
+	let user = new User(this.name, this.sex, this.date, this.address, this.phone, this.email);
 
-	let user = {
-		name: document.getElementById("name").value,
-		sex: document.getElementById("sex").value,
-		date: document.getElementById("birthdate").value,
-		address: document.getElementById("address").value,
-		phone: document.getElementById("phone").value,
-		email: document.getElementById("email").value
-	}
-
-	
-	let userData = new User(user.name, user.sex, user.date, user.address, user.phone, user.email);
-
-	users.push(userData);
+	users.push(user);
 	
 
-	userData.render(user, count);
+	user.render(count);
+	let tr = user.render(count);
+
+	user.createEventClick(tr);
+	addU(tr);
+
 
 	count++;
 
@@ -33,38 +28,50 @@ form.addEventListener('submit', function(e) {
 
 
 
+
 class SuperUser {
 	constructor(name, sex, date, address, phone, email) {
-		this.name = name;
-		this.sex = sex;
-		this.date = date;
-		this.address = address;
-		this.phone = phone;
-		this.email = email;
+		this.name = document.getElementById("name").value;
+		this.sex = document.getElementById("sex").value;
+		this.date = document.getElementById("birthdate").value;
+		this.address = document.getElementById("address").value;
+		this.phone = document.getElementById("phone").value;
+		this.email = document.getElementById("email").value;
 	}
 
-	render(user, count) {
+	render(count) {
 	
-		let tr = document.createElement('tr');
-		let table = document.querySelector('table');
+		const tr = document.createElement('tr');
+		const table = document.querySelector('table');
 		tr.setAttribute('user-index',count);
 		
 
-		tBody.appendChild(tr);
+		
 
-		for (let key in users[count]) {
+		for (let key in this) {
 			
-			let td = document.createElement('td');
+			const td = document.createElement('td');
 			
-	      td.textContent = users[count][key];
+	      td.textContent = this[key];
 	      tr.appendChild(td);  
 		}
 
-		
-		createEventClick(tr);
 		table.appendChild(tBody);
-		}
+		
+
+		return tr;
+	}
+
+	
 }
+
+
+
+
+function addU(tr) {
+	tBody.appendChild(tr);
+}
+
 
 
 class User extends SuperUser {
@@ -84,28 +91,19 @@ class User extends SuperUser {
 				this.isDataVisible = false;
 			}
 	}
-}
 
+	createEventClick(tag){
+	   tag.addEventListener('click',function(e){
 
+	   const index = tag.getAttribute("user-index");
 
-
-function createEventClick(tag){
-   tag.addEventListener('click',function(e){
-
-   	const index = tag.getAttribute("user-index");
-
-      users[index].changeDataVisibility(tag);
+	   users[index].changeDataVisibility(tag);
+	        
+	        	
+   	});
         
-        	
-   });
-        
+	}
 }
-
-
-
-
-
-
 
 
 
