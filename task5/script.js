@@ -1,6 +1,6 @@
 function multiple(a) {
 
-  var currentSum = a;
+  let currentSum = a;
 
   function f(b) {
     currentSum *= b;
