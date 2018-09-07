@@ -1,5 +1,5 @@
-if (!Function.prototype.myBind) {
-	Function.prototype.myBind = function(context){
+if (!Function.prototype.bind) {
+	Function.prototype.bind = function(context){
 		
 		let func = this;
 		let args = Array.prototype.slice.call(arguments, 1);
@@ -23,5 +23,3 @@ var module = {
 var boundGetX = module.getX.bind(module);
 console.log(boundGetX()); 
 
-var bGetX = module.getX.myBind(module);
-console.log(bGetX());
