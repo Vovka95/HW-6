@@ -36,9 +36,7 @@ function addUser(tr) {
 }
 
 class User extends SuperUser {
-
 	render(count) {
-	
 		const tr = document.createElement('tr');
 		tr.setAttribute('user-index',count);
 
@@ -52,7 +50,6 @@ class User extends SuperUser {
 	}
 	
 	changeDataVisibility(tag) {
-
 		if (this.isDataVisible == false) {
 				tag.classList.add("show");
 				tag.classList.remove("hide");
