@@ -1,4 +1,4 @@
-# HW-6
+# HW-6)
 
 task-1: http://Vovka95.github.io/HW-6/task1/
 task-2: http://Vovka95.github.io/HW-6/task2/
